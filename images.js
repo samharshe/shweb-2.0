@@ -46,8 +46,7 @@ const shuffle = function(array){
 
 let nums = shuffle(Array.from({length: 152}, (_, i) => i + 1))
 
-let numImagesShowing = 12;
-
+// let numImagesShowing = 12;
 // const morePhotosButton = document.querySelector('#morePhotosButton')
 // morePhotosButton.addEventListener('click', addImagesOnButtonClick)
 
