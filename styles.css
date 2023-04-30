@@ -45,9 +45,25 @@
 }
 
 body {
+    display: flex;
+    flex-direction: row;
     font-family: 'Times New Roman', serif;
-    font-size: var(--font-size-5);
+    font-size: var(--font-size-4);
     margin: 0;
+}
+
+nav {
+    position: fixed;
+    margin: var(--size-7) 0;
+}
+
+ul {
+    margin: auto;
+}
+
+li {
+    margin: var(--size-7);
+    list-style: none;
 }
 
 .selectedNavLi {
@@ -58,19 +74,12 @@ main {
     font-family: 'Times New Roman', serif;
 }
 
-main a {
-    text-decoration: underline;
-}
-
-li {
-    list-style-type: none;
-}
-
 .aboutSection {
     width: 100%;
 }
 
 main {
+    padding: var(--size-9);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
