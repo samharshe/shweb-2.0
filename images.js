@@ -1,10 +1,9 @@
 const addImagesOnPageLoad = function(){
     const initialImages = document.querySelectorAll('img')
-    console.log(initialImages)
     initialImages.forEach(image => image.src = getImageName(nums.pop()))
 }
 
-const addImagesOnButtonClick = function(){
+const addImagesOnScroll = function(){
     for(let i = 0; i < 4; i++){
         const images = document.querySelectorAll('img')
         lastImg = images[images.length - 1]
@@ -13,11 +12,6 @@ const addImagesOnButtonClick = function(){
         imgToAdd.src = getImageName(nums.pop())
 
         lastImg.insertAdjacentElement('afterend', imgToAdd)
-        numImagesShowing++;
-    }
-
-    if(nums.length == 0){
-        morePhotosButton.remove();
     }
 }
 
@@ -44,10 +38,37 @@ const shuffle = function(array){
     return array
 }
 
-let nums = shuffle(Array.from({length: 152}, (_, i) => i + 1))
+const handleInfiniteScroll = function(){
+    throttle(() => {
+      const endOfPage =
+        window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
+      if (endOfPage) {
+        addImagesOnScroll()
+      }
+      if (nums.length == 0) {
+        removeInfiniteScroll()
+      }
+    }, 1000)
+}
 
-// let numImagesShowing = 12;
-// const morePhotosButton = document.querySelector('#morePhotosButton')
-// morePhotosButton.addEventListener('click', addImagesOnButtonClick)
+const throttle = function(callback, time){
+    if (throttleTimer) return;
+    throttleTimer = true;
+    setTimeout(() => {
+      callback();
+      throttleTimer = false;
+    }, time);
+  };
+  
+  const removeInfiniteScroll = function(){
+      loader.remove();
+      window.removeEventListener("scroll", handleInfiniteScroll);
+  };
+
+window.addEventListener("scroll", handleInfiniteScroll);
+
+var nums = shuffle(Array.from({length: 152}, (_, i) => i + 1))
+
+var throttleTimer;
 
 addImagesOnPageLoad()
