@@ -45,7 +45,7 @@
 }
 
 body {
-    font-family: 'IBM Plex Mono', serif;
+    font-family: 'Helvetica', sans-serif;
     font-size: var(--font-size-4);
     margin: 0;
 }
@@ -54,7 +54,6 @@ nav {
     position: fixed;
     width: 100%;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -65,7 +64,7 @@ h1 {
 }
 
 h1, ul {
-    padding: var(--size-6);
+    padding: var(--size-5);
 }
 
 li {
@@ -75,7 +74,7 @@ li {
 }
 
 main {
-    margin:  var(--size-4) var(--size-9);
+    margin: var(--size-4) var(--size-9);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
