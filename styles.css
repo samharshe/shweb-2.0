@@ -45,7 +45,8 @@
 }
 
 body {
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Georgia', sans-serif;
+    text-decoration: line-through;
     font-size: var(--font-size-4);
     margin: 0;
 }
@@ -65,6 +66,24 @@ h1 {
 
 h1, ul {
     padding: var(--size-5);
+}
+
+footer {
+    text-align: center;
+    font-family: 'IBM Plex Mono', fixed-width;
+    font-size: var(--font-size-3);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-top: 1px solid black;
+    margin-top: var(--size-2);
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    overflow: hidden;
+}
+
+footer p {
+    margin: 0;
+    padding: 0;
 }
 
 li {
