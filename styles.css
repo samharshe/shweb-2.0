@@ -61,7 +61,7 @@ nav {
 h1 {
     font-size: var(--font-size-4);
     font-weight: 400;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 h1, ul {
@@ -72,7 +72,7 @@ footer {
     text-align: center;
     font-family: 'IBM Plex Mono', fixed-width;
     font-size: var(--font-size-3);
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: var(--neutral-000);
     border-top: 1px solid black;
     margin-top: var(--size-2);
     width: 100%;

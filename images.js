@@ -1,11 +1,11 @@
 const addImagesOnPageLoad = function(){
-    const initialImages = Array.from(document.querySelectorAll('img')).slice(8)
+    const initialImages = Array.from(document.querySelectorAll('img')).slice(14)
     initialImages.forEach(image => image.src = getImageName(nums.pop()))
 }
 
 const addImagesOnScroll = function(){
     for(let i = 0; i < 4; i++){
-        const images = Array.from(document.querySelectorAll('img')).slice(8)
+        const images = Array.from(document.querySelectorAll('img')).slice(14)
         lastImg = images[images.length - 1]
 
         let imgToAdd = document.createElement('img');
