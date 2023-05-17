@@ -46,7 +46,6 @@
 
 body {
     font-family: 'Georgia', serif;
-    text-decoration: line-through;
     font-size: var(--font-size-4);
     margin: 0;
 }
