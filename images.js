@@ -67,7 +67,7 @@ const throttle = function(callback, time){
 
 window.addEventListener("scroll", handleInfiniteScroll);
 
-var nums = shuffle(Array.from({length: 152}, (_, i) => i + 1))
+var nums = shuffle(Array.from({length: 164}, (_, i) => i + 1))
 
 var throttleTimer;
 
