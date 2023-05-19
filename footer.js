@@ -9,7 +9,7 @@ function rotatingSign(){
     setInterval(function(){
         textStringBuilder = text.substring(index, Math.max(index+numCharactersToShow, textLength)) + text.substring(0, Math.max(index+textLength-numCharactersToShow,0))
 
-        document.querySelector('#lol').innerHTML = textStringBuilder
+        document.querySelector('#footerText').innerHTML = textStringBuilder
         if(index == textLength){
             index = 0;
         } else {
