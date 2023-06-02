@@ -1,6 +1,18 @@
+const mod = function(n, k){
+  if(n < 0){
+    return k + n
+  }
+  if(n > nums.length){
+    return n % k
+  }
+  return n
+}
+
 const addImagesOnPageLoad = function(){
     const initialImages = Array.from(document.querySelectorAll('img')).slice(16)
-    initialImages.forEach(image => image.src = getImageName(nums.pop()))
+    for(var i = 0; i < initialImages.length; i++){
+      initialImages[i].src = getImageName(nums[i])
+    }
 }
 
 const addImagesOnScroll = function(){
@@ -66,6 +78,22 @@ const throttle = function(callback, time){
   };
 
 window.addEventListener("scroll", handleInfiniteScroll);
+
+window.addEventListener("keydown", (e) => {
+  if(e.code == 'ArrowLeft'){
+    console.log("leftkeypress")
+    currentImageNumber--;
+    big_image.src = getImageName(nums[mod(currentImageNumber, nums.length)])
+  }
+  if(e.code == 'ArrowRight'){
+    console.log("rightkeypress")
+    currentImageNumber++;
+    big_image.src = getImageName(nums[mod(currentImageNumber, nums.length)])
+  }
+});
+
+const big_image = document.querySelector("#big-image")
+var currentImageNumber = 0;
 
 var nums = shuffle(Array.from({length: 164}, (_, i) => i + 1))
 

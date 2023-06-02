@@ -48,23 +48,8 @@ body {
     font-family: 'Georgia', serif;
     font-size: var(--font-size-4);
     margin: 0;
-}
-
-nav {
-    position: fixed;
-    width: 100%;
     display: flex;
-    justify-content: space-between;
-}
-
-h1 {
-    font-size: var(--font-size-4);
-    font-weight: 400;
-    text-transform: capitalize;
-}
-
-h1, ul {
-    padding: var(--size-5);
+    flex-direction: row;
 }
 
 footer {
@@ -86,36 +71,21 @@ footer p {
 }
 
 li {
-    margin: var(--size-7) 0;
     list-style: none;
-    text-align: right;
+    margin-bottom: var(--size-4);
 }
 
-main {
-    margin: var(--size-4) var(--size-9);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+.lettermark {
+    width: var(--size-10);
+    height: var(--size-10);
+    padding: var(--size-4);
 }
 
-nav section {
+#lettermark-gallery {
     width: var(--size-13);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-}
-
-section img {
-    width: var(--size-10);
-    height: var(--size-10);
-}
-
-img {
-    margin: var(--size-3);
-    padding: var(--size-3);
-    width: var(--size-14);
-    height: var(--size-14);
 }
 
 ul {
@@ -123,3 +93,20 @@ ul {
     margin-block-end: 0;
     padding-inline-start: 0;
 }
+
+#big-image {
+    margin: var(--size-8) auto;
+    width: var(--size-17);
+    height: var(--size-17);
+}
+
+#billboard {
+    display: flex;
+    flex-direction: row;
+}
+
+nav {
+    margin-top: var(--size-8);
+    padding: var(--size-4);
+}
+

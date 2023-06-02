@@ -1,13 +1,24 @@
 function rotatingSign(){
-    const text = "Designed and built by Samuel Harshe. "
+    const path = window.location.pathname
+    var text
+    console.log(path)
+    switch(path){
+        case '/Users/samharshe/Documents/Programming/shweb%202.0/billboard.html':
+            text = "Use the left and right arrowkeys to navigate to a new photo. Press the spacebar to view the gallery. "
+            break
+        case '/Users/samharshe/Documents/Programming/shweb%202.0/home.html':
+            text = "Click on a photo to enlarge it. "
+            break
+    }
+
     const textLength = text.length
-    const numCharactersToShow = 25
+    const numCharactersToShow = 40
 
     let textStringBuilder = ""
     let index = 0;
 
     setInterval(function(){
-        textStringBuilder = text.substring(index, Math.max(index+numCharactersToShow, textLength)) + text.substring(0, Math.max(index+textLength-numCharactersToShow,0))
+        textStringBuilder = text.substring(index, Math.min(index+numCharactersToShow, textLength)) + text.substring(0, Math.min(index+textLength-numCharactersToShow,0))
 
         document.querySelector('#footerText').innerHTML = textStringBuilder
         if(index == textLength){
