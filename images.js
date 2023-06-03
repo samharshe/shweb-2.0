@@ -82,18 +82,24 @@ window.addEventListener("scroll", handleInfiniteScroll);
 window.addEventListener("keydown", (e) => {
   if(e.code == 'ArrowLeft'){
     console.log("leftkeypress")
-    currentImageNumber--;
+    currentImageNumber--
     big_image.src = getImageName(nums[mod(currentImageNumber, nums.length)])
   }
   if(e.code == 'ArrowRight'){
     console.log("rightkeypress")
-    currentImageNumber++;
+    currentImageNumber++
     big_image.src = getImageName(nums[mod(currentImageNumber, nums.length)])
   }
 });
 
 const big_image = document.querySelector("#big-image")
 var currentImageNumber = 0;
+
+big_image.addEventListener("click", () => {
+  big_image.id = ""
+  big_image.className = "gallery-image"
+  document.querySelectorAll('.invisible').forEach(e => e.className = "gallery-image")
+})
 
 var nums = shuffle(Array.from({length: 164}, (_, i) => i + 1))
 
