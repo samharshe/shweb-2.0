@@ -83,22 +83,31 @@ window.addEventListener("keydown", (e) => {
   if(e.code == 'ArrowLeft'){
     console.log("leftkeypress")
     currentImageNumber--
-    big_image.src = getImageName(nums[mod(currentImageNumber, nums.length)])
+    billboard_image.src = getImageName(nums[mod(currentImageNumber, nums.length)])
   }
   if(e.code == 'ArrowRight'){
     console.log("rightkeypress")
     currentImageNumber++
-    big_image.src = getImageName(nums[mod(currentImageNumber, nums.length)])
+    billboard_image.src = getImageName(nums[mod(currentImageNumber, nums.length)])
   }
 });
 
-const big_image = document.querySelector("#big-image")
+const billboard_image = document.querySelector("#billboard_image")
 var currentImageNumber = 0;
 
-big_image.addEventListener("click", () => {
-  big_image.id = ""
-  big_image.className = "gallery-image"
-  document.querySelectorAll('.invisible').forEach(e => e.className = "gallery-image")
+billboard_image.addEventListener("click", () => {
+  billboard_image.id = ""
+  billboard_image.className = "gallery_image"
+  document.querySelectorAll('.invisible_image').forEach(e => e.className = "gallery_image")
+  document.querySelectorAll('.lettermark_image').forEach(e => e.classList.add("invisible_until_hover"))
+
+  var galleryImages = document.querySelectorAll(".gallery_image")
+
+  galleryImages.forEach(e => e.addEventListener("click", () => {
+    galleryImages.forEach(f => f.className = "invisible_image")
+    e.className = ""
+    e.id = "billboard_image"
+  })) 
 })
 
 var nums = shuffle(Array.from({length: 164}, (_, i) => i + 1))
