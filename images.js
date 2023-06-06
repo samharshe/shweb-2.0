@@ -22,6 +22,7 @@ const addImagesOnScroll = function(){
 
         let imgToAdd = document.createElement('img');
         imgToAdd.src = getImageName(nums.pop())
+        imgToAdd.className = "gallery_image"
 
         lastImg.insertAdjacentElement('afterend', imgToAdd)
     }
@@ -99,7 +100,6 @@ billboard_image.addEventListener("click", () => {
   billboard_image.id = ""
   billboard_image.className = "gallery_image"
   document.querySelectorAll('.invisible_image').forEach(e => e.className = "gallery_image")
-  document.querySelectorAll('.lettermark_image').forEach(e => e.classList.add("invisible_until_hover"))
 
   var galleryImages = document.querySelectorAll(".gallery_image")
 
