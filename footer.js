@@ -17,7 +17,7 @@ function rotatingSign(){
         } else {
             index++;
         }
-    }, 500)
+    }, 1000)
 }
 
 rotatingSign()
