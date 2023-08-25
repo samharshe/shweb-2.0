@@ -98,3 +98,7 @@ main {
 img:hover {
     cursor: pointer;
 }
+
+footer p {
+    width: 15ch;
+}
