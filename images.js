@@ -8,24 +8,30 @@ const mod = function(n, k){
   return n
 }
 
+var billboard = true
+
 const addImagesOnPageLoad = function(){
-    const initialImages = Array.from(document.querySelectorAll('img')).slice(16)
+    const initialImages = Array.from(document.querySelectorAll('img'))
     for(var i = 0; i < initialImages.length; i++){
       initialImages[i].src = getImageName(nums[i])
     }
 }
 
 const addImagesOnScroll = function(){
-    for(let i = 0; i < 4; i++){
-        const images = Array.from(document.querySelectorAll('img')).slice(16)
-        lastImg = images[images.length - 1]
+  for(let i = 0; i < 4; i++){
+    lastImg = document.querySelector('img:last-of-type')
 
-        let imgToAdd = document.createElement('img');
-        imgToAdd.src = getImageName(nums.pop())
-        imgToAdd.className = "gallery_image"
-
-        lastImg.insertAdjacentElement('afterend', imgToAdd)
+    let imgToAdd = document.createElement('img');
+    imgToAdd.src = getImageName(nums.pop())
+    imgToAdd.addEventListener("click", gallery_click)
+    if(billboard){
+      imgToAdd.className = "invisible_image"
+    } else {
+      imgToAdd.className = "gallery_image"
     }
+
+    lastImg.insertAdjacentElement('afterend', imgToAdd)
+  }
 }
 
 const getImageName = function(n){
@@ -73,10 +79,10 @@ const throttle = function(callback, time){
     }, time);
   };
   
-  const removeInfiniteScroll = function(){
-      loader.remove();
-      window.removeEventListener("scroll", handleInfiniteScroll);
-  };
+const removeInfiniteScroll = function(){
+    loader.remove();
+    window.removeEventListener("scroll", handleInfiniteScroll);
+};
 
 window.addEventListener("scroll", handleInfiniteScroll);
 
@@ -95,6 +101,35 @@ window.addEventListener("keydown", (e) => {
 
 var billboard_image = document.querySelector("#billboard_image")
 var currentImageNumber = 0;
+
+billboard_click = function(e) {
+  billboard = false
+  e.target.removeEventListener("click", billboard_click)
+  e.target.id = ""
+
+  const images = document.querySelectorAll('img')
+  images.forEach((i) => {
+    i.classList.add("gallery_image")
+    i.classList.remove("invisible_image")
+    i.addEventListener("click", gallery_click)
+  })
+}
+
+gallery_click = function(e) {
+  billboard = true
+  const images = document.querySelectorAll('img')
+  images.forEach((i) => {
+    i.classList.remove("gallery_image")
+    i.classList.add("invisible_image")
+    i.removeEventListener("click", gallery_click)
+  })
+
+  e.target.id = "billboard_image"
+  e.target.classList.remove("invisible_image")
+  e.target.addEventListener("click", billboard_click)
+}
+
+billboard_image.addEventListener("click", billboard_click)
 
 var nums = shuffle(Array.from({length: 164}, (_, i) => i + 1))
 

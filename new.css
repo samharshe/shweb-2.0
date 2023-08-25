@@ -62,7 +62,7 @@ footer {
     bottom: 0;
     overflow: hidden;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 footer p {
@@ -71,25 +71,12 @@ footer p {
     display: inline;
 }
 
-#lettermark_gallery {
-    width: var(--size-13);
-    height: 100%;
-    position: fixed;
-    left: 0;
-}
-
 main {
     display: flex;
     width: var(--size-19);
     justify-content: space-around;
     flex-wrap: wrap;
     margin: auto;
-}
-
-.lettermark_image {
-    height: var(--size-10);
-    width: var(--size-10);
-    padding: var(--size-4);
 }
 
 #billboard_image {
@@ -106,4 +93,8 @@ main {
     width: var(--size-13);
     height: var(--size-13);
     padding: var(--size-4);
+}
+
+img:hover {
+    cursor: pointer;
 }
