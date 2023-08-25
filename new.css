@@ -61,18 +61,14 @@ footer {
     position: fixed;
     bottom: 0;
     overflow: hidden;
+    display: flex;
+    justify-content: space-between;
 }
-
 
 footer p {
     margin: 0;
     padding: var(--size-3);
-}
-
-li {
-    padding: var(--size-3);
-    list-style: none;
-    text-align: right;
+    display: inline;
 }
 
 #lettermark_gallery {
@@ -88,13 +84,6 @@ main {
     justify-content: space-around;
     flex-wrap: wrap;
     margin: auto;
-}
-
-nav {
-    width: var(--size-12);
-    height: 100%;
-    position: fixed;
-    right: 0;
 }
 
 .lettermark_image {
@@ -117,12 +106,4 @@ nav {
     width: var(--size-13);
     height: var(--size-13);
     padding: var(--size-4);
-}
-
-.invisible_until_hover {
-    opacity: 0;
-}
-
-.invisible_until_hover:hover {
-    opacity: 100%;
 }

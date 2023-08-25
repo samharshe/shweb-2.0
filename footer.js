@@ -3,7 +3,7 @@ function rotatingSign(){
     var text
     console.log(path)
     switch(path){
-        case '/Users/samharshe/Documents/Programming/shweb%202.0/billboard.html':
+        case 'file:///Users/samharshe/Documents/Programming/shweb%202.0/new.html':
             text = "Use the left and right arrowkeys to navigate to a new photo. Press the spacebar to view the gallery. "
             break
         case '/Users/samharshe/Documents/Programming/shweb%202.0/home.html':

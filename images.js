@@ -93,22 +93,8 @@ window.addEventListener("keydown", (e) => {
   }
 });
 
-const billboard_image = document.querySelector("#billboard_image")
+var billboard_image = document.querySelector("#billboard_image")
 var currentImageNumber = 0;
-
-billboard_image.addEventListener("click", () => {
-  billboard_image.id = ""
-  billboard_image.className = "gallery_image"
-  document.querySelectorAll('.invisible_image').forEach(e => e.className = "gallery_image")
-
-  var galleryImages = document.querySelectorAll(".gallery_image")
-
-  galleryImages.forEach(e => e.addEventListener("click", () => {
-    galleryImages.forEach(f => f.className = "invisible_image")
-    e.className = ""
-    e.id = "billboard_image"
-  })) 
-})
 
 var nums = shuffle(Array.from({length: 164}, (_, i) => i + 1))
 
